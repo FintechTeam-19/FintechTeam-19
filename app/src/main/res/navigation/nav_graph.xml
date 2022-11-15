@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nag_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.oyatech.expensestracker.LogInFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_loginFragment_to_newUserFragment"
+            app:destination="@id/newUserFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashBoardFragment"
+            app:destination="@id/dashBoardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newUserFragment"
+        android:name="com.oyatech.expensestracker.NewUserFragment"
+        android:label="@string/new_user"
+        tools:layout="@layout/fragment_new_user" >
+        <action
+            android:id="@+id/action_newUserFragment_to_dashBoardFragment"
+            app:destination="@id/dashBoardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashBoardFragment"
+        android:name="com.oyatech.expensestracker.DashBoardFragment"
+        android:label="@string/dashboard"
+        tools:layout="@layout/fragment_dash_board" >
+        <action
+            android:id="@+id/action_dashBoardFragment_to_incomeFragment"
+            app:destination="@id/incomeFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="com.oyatech.expensestracker.IncomeFragment"
+        android:label="@string/total_income"
+        tools:layout="@layout/fragment_income" >
+        <argument
+            android:name="@string/income"
+            app:argType="float"
+            android:defaultValue="0.0">
+        </argument>
+        <action
+            android:id="@+id/action_incomeFragment_to_foodExpensesFragment"
+            app:destination="@id/foodExpensesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodExpensesFragment"
+        android:name="com.oyatech.expensestracker.FoodExpensesFragment"
+        android:label="@string/food_expenses"
+        tools:layout="@layout/fragment_food_expenses">
+        <argument
+            android:name="@string/income"
+            app:argType="float"
+            android:defaultValue="0.0">
+        </argument>
+        <action
+            android:id="@+id/action_foodExpensesFragment_to_budgetDetailsFragment"
+            app:destination="@id/budgetDetailsFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/budgetDetailsFragment"
+        android:name="com.oyatech.expensestracker.BudgetDetailsFragment"
+        tools:layout="@layout/fragment_budget_details"
+        android:label="Budget Details">
+    <argument
+        android:name="@string/details"
+        app:argType="integer"
+        android:defaultValue="0">
+    </argument>
+</fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.oyatech.expensestracker.HistoryFragment"
+        android:label="Budget History"
+        tools:layout="@layout/fragment_history"/>
+
+</navigation>
