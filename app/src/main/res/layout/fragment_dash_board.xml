@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DashBoardFragment">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back"
+        style="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:id="@+id/divider"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@id/welcome"
+        android:layout_height="2dp" />
+
+    <com.google.android.material.button.MaterialButton
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="3dp"
+        tools:layout_editor_absoluteX="-9dp" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+       android:id="@+id/history"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:layout_marginEnd="3dp"
+app:icon="@drawable/ic_history"
+        app:iconTintMode="src_in"
+        android:text="History"
+        app:layout_constraintEnd_toStartOf="@id/new_tracker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        android:layout_marginTop="110dp"
+        android:layout_marginStart="40dp" />
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/settings"
+        android:layout_width="0dp"
+        app:icon="@drawable/ic_settings"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:layout_marginEnd="3dp"
+        android:text="Settings"
+        app:layout_constraintStart_toStartOf="@id/history"
+        app:layout_constraintEnd_toEndOf="@id/history"
+        app:layout_constraintTop_toBottomOf="@id/history"
+        android:layout_marginTop="10dp"
+        />
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+       android:id="@+id/new_tracker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:layout_marginStart="2dp"
+        android:text="New Tracker"
+        app:icon="@drawable/ic_new_traker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/history"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="40dp" />
+ <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+       android:id="@+id/statistic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+     app:icon="@drawable/ic_statistics"
+        android:layout_marginStart="2dp"
+        android:text="Statistics"
+        app:layout_constraintEnd_toEndOf="@id/new_tracker"
+        app:layout_constraintStart_toEndOf="@id/history"
+        app:layout_constraintTop_toBottomOf="@id/new_tracker"
+        android:layout_marginTop="10dp"
+     />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
