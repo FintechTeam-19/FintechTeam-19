@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "344451712633",
+    "project_id": "exp-tracker-8470d",
+    "storage_bucket": "exp-tracker-8470d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344451712633:android:87edfbd6a9a5d8d1bcf6a8",
+        "android_client_info": {
+          "package_name": "com.oyatech.expensestracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344451712633-gjgram6rooolnos0b893tlu71eq8vv8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ-h9lR1YZKQ8-tIqypwOi_Q7RKCbE9Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344451712633-gjgram6rooolnos0b893tlu71eq8vv8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

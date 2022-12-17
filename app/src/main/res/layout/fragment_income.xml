@@ -30,7 +30,7 @@ android:id="@+id/income_layout"
         app:layout_constraintStart_toStartOf="parent"
         >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/user_full_name"
+            android:id="@+id/income"
             android:hint="@string/income"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

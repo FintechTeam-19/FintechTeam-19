@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nag_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/dashBoardFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -51,20 +51,32 @@
         <action
             android:id="@+id/action_incomeFragment_to_foodExpensesFragment"
             app:destination="@id/foodExpensesFragment" />
+        <action
+            android:id="@+id/action_incomeFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/foodExpensesFragment"
         android:name="com.oyatech.expensestracker.FoodExpensesFragment"
-        android:label="@string/food_expenses"
+        android:label="@string/expenses"
         tools:layout="@layout/fragment_food_expenses">
-        <argument
+        <!--<argument
             android:name="@string/income"
             app:argType="float"
             android:defaultValue="0.0">
-        </argument>
+        </argument>-->
         <action
+
             android:id="@+id/action_foodExpensesFragment_to_budgetDetailsFragment"
             app:destination="@id/budgetDetailsFragment"/>
+        <action
+            android:id="@+id/action_foodExpensesFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_foodExpensesFragment_to_dashBoardFragment"
+            app:destination="@id/dashBoardFragment"
+            app:popUpTo="@id/dashBoardFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/budgetDetailsFragment"
@@ -72,7 +84,7 @@
         tools:layout="@layout/fragment_budget_details"
         android:label="Budget Details">
     <argument
-        android:name="@string/details"
+        android:name="position"
         app:argType="integer"
         android:defaultValue="0">
     </argument>
@@ -81,6 +93,15 @@
         android:id="@+id/historyFragment"
         android:name="com.oyatech.expensestracker.HistoryFragment"
         android:label="Budget History"
-        tools:layout="@layout/fragment_history"/>
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_historyFragment_to_budgetDetailsFragment"
+            app:destination="@id/budgetDetailsFragment" />
+        <!--<argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />-->
+
+    </fragment>
 
 </navigation>

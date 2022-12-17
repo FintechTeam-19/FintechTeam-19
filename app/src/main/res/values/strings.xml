@@ -9,15 +9,18 @@
     <string name="email">Email</string>
     <string name="save">Save</string>
     <string name="user_interaction">How much of your income would you like to spend on expenses ?</string>
-    <string name="user_interaction1">How much of your income would you like to spend on Food</string>
+    <string name="user_interaction1"></string>
     <string name="next">Next</string>
     <string name="cancel">Cancel</string>
     <string name="income">User Income</string>
-    <string name="food_expenses">Food Expenses</string>
+    <string name="amount">Amount</string>
     <string name="new_user">New User</string>
     <string name="total_income">Total Income</string>
     <string name="dashboard">Dashboard</string>
     <string name="login">Log In</string>
     <string name="details">detals</string>
-
+    <string name="password">password</string>
+    <string name="have_no_account">Have no account? <b><u>Create Account.</u></b></string>
+    <string name="expenses"><b><u>Expenses</u></b></string>
+    <string name="expense_name">Expense Name</string>
 </resources>

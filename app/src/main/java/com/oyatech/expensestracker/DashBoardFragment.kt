@@ -36,6 +36,15 @@ class DashBoardFragment : Fragment(), View.OnClickListener {
         binding.statistic.setOnClickListener(this)
         binding.settings.setOnClickListener(this)
 
+        val color: IntArray? = context?.resources?.getIntArray(R.array.monthly_colors)
+        val random = (0..(color?.size?.minus(1)!!)).random()
+
+        color[random].let {
+
+            binding.welcome.setTextColor(it)
+        }
+
+
     }
 
     override fun onClick(view: View?) {

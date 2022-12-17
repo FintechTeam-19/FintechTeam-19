@@ -32,7 +32,7 @@ class LogInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.logIn.setOnClickListener {
+        binding.newUserFragment.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_newUserFragment)
         }
     }

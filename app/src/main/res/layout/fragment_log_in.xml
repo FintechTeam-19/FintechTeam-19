@@ -8,14 +8,38 @@
     tools:context=".LogInFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView"
-        style="@style/TextAppearance.AppCompat.Medium"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_layout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_full_name"
+            android:hint="@string/email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_layout"
+        android:layout_marginTop="@dimen/top_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please Design me"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/email_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contact"
+            android:hint="@string/password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/log_in"
@@ -23,12 +47,25 @@
         android:layout_height="wrap_content"
         android:contentDescription="Create a new user"
         android:text="@string/login"
+        android:layout_marginTop="50dp"
 
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/password_layout" />
+
+    <TextView
+        android:id="@+id/newUserFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/have_no_account"
+        style="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/log_in">
+
+    </TextView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
