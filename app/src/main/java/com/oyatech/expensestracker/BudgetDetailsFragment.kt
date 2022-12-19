@@ -46,14 +46,18 @@ var _binding:FragmentBudgetDetailsBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-val action = args.position
+ val position= args.position
       val recyclerView =  binding.recyclerView
             recyclerView.layoutManager = LinearLayoutManager(context)
-        detailAdapter.submitList(viewModel.allExpenses)
+        with(viewModel){
+            userExpenses(position)
+            detailAdapter.submitList(userExpenses)
+        }
+
         recyclerView.adapter = detailAdapter
 
 
-        Log.i(TAG, "onViewCreated: $action")
+        Log.i(TAG, "onViewCreated: $position")
 
     }
     override fun onDestroy() {

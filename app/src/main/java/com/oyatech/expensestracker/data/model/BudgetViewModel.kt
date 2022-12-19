@@ -12,6 +12,7 @@ class BudgetViewModel (context: Context): ViewModel() {
     var budgetListLive:MutableLiveData<MutableList<Budget>> = MutableLiveData<MutableList<Budget>>()
 var budget = Budget(0.0,null)
      var allExpenses = arrayListOf<Expenses>()
+var userExpenses = mutableListOf<Expenses>()
     var balance = 0.0
 
     private fun getNewBudget( month:String,spent:Double,income:Double,balance:Double, expenses: ArrayList<Expenses>?):Budget{
@@ -33,6 +34,7 @@ var budget = Budget(0.0,null)
        budgetList.add(monthlyBudget)
         budgetListLive.value = budgetList
         amountSpent(monthlyBudget)
+        allExpenses.clear()
     }
 
    private fun updateExpense(expenses: Expenses){
@@ -63,10 +65,13 @@ var budget = Budget(0.0,null)
     }
 
     fun userExpenses(position: Int){
-        allExpenses = budgetList[position].expenses!!
+        userExpenses = budgetList[position].expenses!!
     }
 }
 
+/**
+ * TODO: why the each budget expense is not saved
+ */
 
 
 //ViewModel Factory
