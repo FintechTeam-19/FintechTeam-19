@@ -9,13 +9,16 @@ import androidx.lifecycle.ViewModelProvider
 class BudgetViewModel (context: Context): ViewModel() {
 
     private val budgetList: MutableList<Budget> = mutableListOf()
-    var budgetListLive:MutableLiveData<MutableList<Budget>> = MutableLiveData<MutableList<Budget>>()
-var budget = Budget(0.0,null)
-     var allExpenses = arrayListOf<Expenses>()
+    var budgetListLive:MutableLiveData<MutableList<Budget>> = MutableLiveData()
+    var allExpenses = mutableListOf<Expenses>()
+
+    var budget = Budget(0.0,null)
+
 var userExpenses = mutableListOf<Expenses>()
+  var userExpensesLiveData:MutableLiveData<MutableList<Expenses>>  = MutableLiveData()
     var balance = 0.0
 
-    private fun getNewBudget( month:String,spent:Double,income:Double,balance:Double, expenses: ArrayList<Expenses>?):Budget{
+    private fun getNewBudget( month:String,spent:Double,income:Double,balance:Double, expenses: MutableList<Expenses>?):Budget{
         return Budget(income = income, month = month, amountSpent = spent,balance = balance, expenses = expenses)
 
     }
@@ -23,7 +26,7 @@ var userExpenses = mutableListOf<Expenses>()
 
     fun  addBudget(
         income: String,
-        month:String, expenses: ArrayList<Expenses>?,
+        month:String, expenses: MutableList<Expenses>?,
         spent:Double=0.0,
         balance:Double=0.0){
         val monthlyBudget = getNewBudget(month = month, spent = spent, income = income.toDouble(),balance = balance, expenses = expenses)
@@ -34,11 +37,13 @@ var userExpenses = mutableListOf<Expenses>()
        budgetList.add(monthlyBudget)
         budgetListLive.value = budgetList
         amountSpent(monthlyBudget)
-        allExpenses.clear()
     }
 
    private fun updateExpense(expenses: Expenses){
 
+
+    }
+    fun newBudget(){
 
     }
    private fun amountSpent(budget: Budget){
@@ -57,6 +62,7 @@ var userExpenses = mutableListOf<Expenses>()
     fun addExpense(name: String,value: Double){
         val expense = getExpense(name = name, value = value)
         allExpenses.add(expense)
+
     }
 
     private fun balance(budget: Budget){
@@ -66,12 +72,13 @@ var userExpenses = mutableListOf<Expenses>()
 
     fun userExpenses(position: Int){
         userExpenses = budgetList[position].expenses!!
+        userExpensesLiveData.value = userExpenses
+    }
+    fun updateExpense (){
+        userExpensesLiveData.value = userExpenses
     }
 }
 
-/**
- * TODO: why the each budget expense is not saved
- */
 
 
 //ViewModel Factory

@@ -57,7 +57,7 @@ class DashBoardFragment : Fragment(), View.OnClickListener {
                     findNavController().navigate(R.id.action_dashBoardFragment_to_historyFragment)
                 }
                 R.id.statistic ->        {
-                    Toast.makeText(requireContext(),"To Statistic Page",Toast.LENGTH_SHORT).show()
+
 
                 }
                 R.id.settings ->        {

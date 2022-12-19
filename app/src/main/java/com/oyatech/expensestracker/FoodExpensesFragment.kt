@@ -17,7 +17,7 @@ import com.oyatech.expensestracker.databinding.FragmentFoodExpensesBinding
 class FoodExpensesFragment : Fragment() {
     private var _binding: FragmentFoodExpensesBinding? = null
     private val binding get() = _binding!!
-    val viewModel: BudgetViewModel by activityViewModels {
+    private val viewModel: BudgetViewModel by activityViewModels {
         BudgetViewModelFactory(requireContext())
     }
 
@@ -41,20 +41,23 @@ class FoodExpensesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.next.setOnClickListener {
+
             //Intent to details screen passing the id of the user
             val value = binding.expenseAmount.text.toString()
             val name = binding.expenseName.text.toString()
 
-          with( viewModel){
+            var expense = Expenses(name,value.toDouble())
+            expenses.add(expense)
+         /* with( viewModel){
               addExpense(name,value.toDouble())
           }
-
+*/
             if (count==1){
                 binding.next.text = "Save"
             }
             if (count == 2) {
                 with(viewModel) {
-                    addBudget(budget.income.toString(), budget.month, allExpenses,balance)
+                    addBudget(budget.income.toString(), budget.month, expenses,balance)
                     val action =
                     findNavController().navigate(R.id.action_foodExpensesFragment_to_historyFragment)
                 }
@@ -68,7 +71,7 @@ class FoodExpensesFragment : Fragment() {
         }
     }
 
-    fun clearFields() {
+    private fun clearFields() {
         binding.expenseAmount.setText("")
         binding.expenseName.setText("")
     }

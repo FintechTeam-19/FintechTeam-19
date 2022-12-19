@@ -2,10 +2,12 @@ package com.oyatech.expensestracker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.oyatech.expensestracker.data.model.Expenses
 
 class MainActivity : AppCompatActivity() {
    private lateinit var navController:NavController
@@ -22,4 +24,5 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
 }

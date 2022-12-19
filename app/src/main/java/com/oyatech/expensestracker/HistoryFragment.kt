@@ -1,6 +1,7 @@
 package com.oyatech.expensestracker
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -47,7 +48,10 @@ class HistoryFragment : Fragment() {
 
         }
         recycle.adapter = budgetAdapter
+        Log.i("History", "onViewCreated: ${viewModel.budget.hashCode()}")
+
     }
+
 
 
 }

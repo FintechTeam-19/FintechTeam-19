@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oyatech.expensestracker.data.model.Expenses
 import com.oyatech.expensestracker.databinding.ExpensesLayoutBinding
 
-class BudgetDetailAdapter(val context: Context) :
+class BudgetDetailAdapter(private val editExpenseClick:(Expenses,Int)->Unit) :
     ListAdapter<Expenses, BudgetDetailAdapter.DetailViewHolder>(DiffCalls) {
     companion object DiffCalls : ItemCallback<Expenses>() {
         override fun areItemsTheSame(oldItem: Expenses, newItem: Expenses): Boolean {
@@ -37,11 +37,16 @@ class BudgetDetailAdapter(val context: Context) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailViewHolder {
-        val binding = ExpensesLayoutBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding = ExpensesLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return DetailViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
-       holder.bindingView(getItem(position))
+        val expense = getItem(position)
+       holder.bindingView(expense)
+        holder.itemView.setOnClickListener {
+            editExpenseClick(expense,position)
+
+        }
     }
 }
